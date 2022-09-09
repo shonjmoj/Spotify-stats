@@ -3,9 +3,10 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import styles from "../styles/Home.module.css";
 import { UserInfo } from "../types";
-import { UserProfile } from "../components/User";
+import { LogInButton } from "../components/Buttons/LogInButton";
+import Title from "../components/Title/Title";
+import Container from "../components/Container/Container";
 
 const Home: NextPage = () => {
   const router = useRouter();
@@ -26,21 +27,27 @@ const Home: NextPage = () => {
     setToken(token!);
   }, []);
 
+  const handleLogIn = () => {
+    window.location =
+      `${process.env.NEXT_PUBLIC_AUTH_ENDPOINT}?client_id=${process.env.NEXT_PUBLIC_CLIENT_ID}&redirect_uri=${process.env.NEXT_PUBLIC_REDIRECT_URI}&response_type=${process.env.NEXT_PUBLIC_RESPONSE_TYPE}&show_dialog=true` as
+        | Location & (Location | string);
+  };
+
   useEffect(() => {
     if (token) {
       router.push("/user");
     }
   }, [token]);
+
   return (
-    <div>
-      <button>
-        <Link
-          href={`${process.env.NEXT_PUBLIC_AUTH_ENDPOINT}?client_id=${process.env.NEXT_PUBLIC_CLIENT_ID}&redirect_uri=${process.env.NEXT_PUBLIC_REDIRECT_URI}&response_type=${process.env.NEXT_PUBLIC_RESPONSE_TYPE}`}
-        >
+    <Container>
+      <Title>Spotify</Title>
+      {!token && (
+        <LogInButton login onClick={handleLogIn}>
           Log in
-        </Link>
-      </button>
-    </div>
+        </LogInButton>
+      )}
+    </Container>
   );
 };
 
