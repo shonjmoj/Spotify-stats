@@ -16,7 +16,7 @@ const LogInButton = S.button`
 	font-size: 1em;
 	cursor: pointer;
 	margin: 0 1em;
-`;
+	`;
 
 const LogOutButton = S(LogInButton)`
 	background : none;

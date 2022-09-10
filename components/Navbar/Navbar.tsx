@@ -7,6 +7,7 @@ const Navbar = S.nav`
 	left: 0;
 	height: 4em;
 	display: flex;
+	justify-content : space-between;
 	align-items: center;
 	background: #1CD661;
 `;
