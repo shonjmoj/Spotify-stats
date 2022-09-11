@@ -9,7 +9,6 @@ const Navbar = S.nav`
 	display: flex;
 	justify-content : space-between;
 	align-items: center;
-	background: #1CD661;
 `;
 
 export default Navbar;
