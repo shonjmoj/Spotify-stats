@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
-import React, { useEffect, useState } from "react";
-import { LogInButton, LogOutButton } from "../components/Buttons/Buttons";
+import React from "react";
+import { LogInButton } from "../components/Buttons/Buttons";
 import Title from "../components/Title/Title";
 import Container from "../components/Container/Container";
 import { useSession, signIn } from "next-auth/react";

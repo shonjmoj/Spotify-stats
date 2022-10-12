@@ -1,10 +1,15 @@
 import S from "styled-components";
 
 const Footer = S.footer`
-	width: 50%;
+	width: 30%;
 	position: absolute;
-	left: 0;
 	bottom: 0;
-	height: 4em;
-	background: #1CD661;
+	height: 3em;
+	display : flex;
+	justify-content : start;
+	gap: 0.8em;
+	cursor : pointer;
 `;
+
+
+export default Footer;
